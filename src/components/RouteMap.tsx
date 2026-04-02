@@ -1,53 +1,61 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { Route, DAY_COLORS } from '@/lib/types';
 
 interface RouteMapProps {
   route: Route;
+  animated?: boolean;
 }
 
-export default function RouteMap({ route }: RouteMapProps) {
+export default function RouteMap({ route, animated = false }: RouteMapProps) {
   const [mapReady, setMapReady] = useState(false);
   const [mapId] = useState(`map-${Math.random().toString(36).slice(2)}`);
 
-  useEffect(() => {
-    const initMap = async () => {
-      const L = (await import('leaflet')).default;
+  const initMap = useCallback(async () => {
+    const L = (await import('leaflet')).default;
 
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      delete (L.Icon.Default.prototype as any)._getIconUrl;
-      L.Icon.Default.mergeOptions({
-        iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
-        iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
-        shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
-      });
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    delete (L.Icon.Default.prototype as any)._getIconUrl;
+    L.Icon.Default.mergeOptions({
+      iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
+      iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+      shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+    });
 
-      const container = document.getElementById(mapId);
-      if (!container) return;
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      if ((container as any)._leaflet_id) return;
+    const container = document.getElementById(mapId);
+    if (!container) return;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    if ((container as any)._leaflet_id) return;
 
-      const map = L.map(mapId).setView([31.5, 35.0], 8);
+    const map = L.map(mapId).setView([31.5, 35.0], 8);
 
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; OpenStreetMap contributors',
-        maxZoom: 18,
-      }).addTo(map);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors',
+      maxZoom: 18,
+    }).addTo(map);
 
-      const allPoints: [number, number][] = [];
+    const allPoints: [number, number][] = [];
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const shouldAnimate = animated && !prefersReducedMotion;
 
-      route.days.forEach((day) => {
-        const color = DAY_COLORS[(day.day - 1) % DAY_COLORS.length];
-        const points: [number, number][] = [];
+    let globalDelay = 0;
 
-        day.stops.forEach((stop, i) => {
-          const point: [number, number] = [stop.lat, stop.lng];
-          points.push(point);
-          allPoints.push(point);
+    route.days.forEach((day) => {
+      const color = DAY_COLORS[(day.day - 1) % DAY_COLORS.length];
+      const points: [number, number][] = [];
 
+      day.stops.forEach((stop, i) => {
+        const point: [number, number] = [stop.lat, stop.lng];
+        points.push(point);
+        allPoints.push(point);
+
+        const delay = globalDelay;
+        globalDelay += shouldAnimate ? 300 : 0;
+
+        const createMarker = () => {
           const icon = L.divIcon({
-            html: `<div style="
+            html: `<div class="${shouldAnimate ? 'marker-bounce' : ''}" style="
               background-color: ${color};
               color: white;
               width: 28px;
@@ -77,30 +85,74 @@ export default function RouteMap({ route }: RouteMapProps) {
               </div>`,
               { maxWidth: 250 }
             );
-        });
+        };
 
-        if (points.length > 1) {
-          L.polyline(points, {
-            color,
-            weight: 3,
-            opacity: 0.7,
-            dashArray: '8, 8',
-          }).addTo(map);
+        if (shouldAnimate) {
+          setTimeout(createMarker, delay);
+        } else {
+          createMarker();
         }
       });
 
-      if (allPoints.length > 0) {
-        const bounds = L.latLngBounds(allPoints);
-        map.fitBounds(bounds, { padding: [30, 30] });
+      if (points.length > 1) {
+        const createPolyline = () => {
+          if (shouldAnimate) {
+            // Animated polyline with dash-offset
+            const polyline = L.polyline(points, {
+              color,
+              weight: 3,
+              opacity: 0.7,
+              dashArray: '8, 8',
+              className: 'animated-polyline',
+            }).addTo(map);
+            
+            // Calculate total length for animation
+            const el = polyline.getElement();
+            if (el) {
+              const path = el as SVGElement;
+              const pathEl = path.querySelector('path');
+              if (pathEl) {
+                const length = pathEl.getTotalLength();
+                pathEl.style.strokeDasharray = `${length}`;
+                pathEl.style.strokeDashoffset = `${length}`;
+                pathEl.style.transition = `stroke-dashoffset 1.2s cubic-bezier(0.4, 0, 0.2, 1)`;
+                requestAnimationFrame(() => {
+                  pathEl.style.strokeDashoffset = '0';
+                });
+              }
+            }
+          } else {
+            L.polyline(points, {
+              color,
+              weight: 3,
+              opacity: 0.7,
+              dashArray: '8, 8',
+            }).addTo(map);
+          }
+        };
+
+        if (shouldAnimate) {
+          setTimeout(createPolyline, globalDelay);
+          globalDelay += 200;
+        } else {
+          createPolyline();
+        }
       }
+    });
 
-      setMapReady(true);
-    };
+    if (allPoints.length > 0) {
+      const bounds = L.latLngBounds(allPoints);
+      map.fitBounds(bounds, { padding: [30, 30] });
+    }
 
+    setMapReady(true);
+  }, [route, mapId, animated]);
+
+  useEffect(() => {
     if (route.days.length > 0) {
       initMap();
     }
-  }, [route, mapId]);
+  }, [route, initMap]);
 
   return (
     <div className="relative">
@@ -110,8 +162,8 @@ export default function RouteMap({ route }: RouteMapProps) {
         style={{ zIndex: 0 }}
       />
       {!mapReady && route.days.length > 0 && (
-        <div className="absolute inset-0 flex items-center justify-center bg-surface/80">
-          <p className="text-on-surface-variant">טוען מפה...</p>
+        <div className="absolute inset-0 flex items-center justify-center bg-surface-container-high skeleton-shimmer">
+          <span className="material-symbols-outlined text-4xl text-outline/30">map</span>
         </div>
       )}
     </div>
