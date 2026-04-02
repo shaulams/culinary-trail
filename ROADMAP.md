@@ -14,12 +14,12 @@
 - [x] WhatsApp sharing
 - [x] Build passes, deployed
 
-## Phase 2: Enhanced UX
-- [ ] OG image extraction from article URLs for stop cards
-- [ ] Animated route building (progressive reveal)
-- [ ] Drag-and-drop stop reordering
-- [ ] Mobile bottom sheet for map interaction
-- [ ] Skeleton loading states
+## Phase 2: Enhanced UX ✅
+- [x] OG image extraction from article URLs for stop cards
+- [x] Animated route building (progressive reveal)
+- [x] Drag-and-drop stop reordering
+- [x] Mobile bottom sheet for map interaction
+- [x] Skeleton loading states
 - [ ] Dark mode support
 
 ## Phase 3: Smart Routing
