@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-cream: #FFF8F0;
+  --color-cream-dark: #F5EDE0;
+  --color-olive: #6B8E23;
+  --color-olive-dark: #4A6318;
+  --color-olive-light: #8DB33A;
+  --color-terracotta: #C75B39;
+  --color-terracotta-light: #E8845F;
+  --color-sand: #D4A574;
+  --color-sand-light: #E8C9A0;
+  --color-earth: #8B6B4A;
+  --color-earth-dark: #6B4E33;
+  --font-heebo: 'Heebo', sans-serif;
+}
+
+body {
+  background: var(--color-cream);
+  color: #2D2A24;
+  font-family: var(--font-heebo);
+  line-height: 1.7;
+}
+
+/* Leaflet fixes for RTL */
+.leaflet-container {
+  direction: ltr;
+  font-family: var(--font-heebo);
+}
+
+.leaflet-popup-content {
+  direction: rtl;
+  text-align: start;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-cream-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-sand);
+  border-radius: 3px;
+}
+
+/* Range slider styling */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  background: var(--color-sand-light);
+  border-radius: 3px;
+  outline: none;
+  direction: ltr;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--color-olive);
+  cursor: pointer;
+}
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--color-olive);
+  cursor: pointer;
+  border: none;
+}
