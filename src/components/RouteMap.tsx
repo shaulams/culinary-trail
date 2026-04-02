@@ -12,11 +12,9 @@ export default function RouteMap({ route }: RouteMapProps) {
   const [mapId] = useState(`map-${Math.random().toString(36).slice(2)}`);
 
   useEffect(() => {
-    // Dynamic import of leaflet (SSR-safe)
     const initMap = async () => {
       const L = (await import('leaflet')).default;
 
-      // Fix default marker icons
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       delete (L.Icon.Default.prototype as any)._getIconUrl;
       L.Icon.Default.mergeOptions({
@@ -27,12 +25,9 @@ export default function RouteMap({ route }: RouteMapProps) {
 
       const container = document.getElementById(mapId);
       if (!container) return;
-
-      // Check if already initialized
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       if ((container as any)._leaflet_id) return;
 
-      // Israel center
       const map = L.map(mapId).setView([31.5, 35.0], 8);
 
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -51,7 +46,6 @@ export default function RouteMap({ route }: RouteMapProps) {
           points.push(point);
           allPoints.push(point);
 
-          // Numbered circle marker
           const icon = L.divIcon({
             html: `<div style="
               background-color: ${color};
@@ -64,9 +58,9 @@ export default function RouteMap({ route }: RouteMapProps) {
               justify-content: center;
               font-weight: bold;
               font-size: 13px;
-              border: 2px solid white;
-              box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-              font-family: 'Heebo', sans-serif;
+              border: 2px solid #fbf9f4;
+              box-shadow: 0 2px 8px rgba(160,63,48,0.15);
+              font-family: 'Alef', sans-serif;
             ">${i + 1}</div>`,
             className: '',
             iconSize: [28, 28],
@@ -76,7 +70,7 @@ export default function RouteMap({ route }: RouteMapProps) {
           L.marker(point, { icon })
             .addTo(map)
             .bindPopup(
-              `<div style="direction:rtl;text-align:right;font-family:'Heebo',sans-serif;">
+              `<div style="direction:rtl;text-align:right;font-family:'Alef',sans-serif;">
                 <strong>${stop.name}</strong><br/>
                 <small>${stop.type} · ${stop.region}</small><br/>
                 <small>${stop.description.slice(0, 100)}${stop.description.length > 100 ? '...' : ''}</small>
@@ -85,7 +79,6 @@ export default function RouteMap({ route }: RouteMapProps) {
             );
         });
 
-        // Polyline for the day
         if (points.length > 1) {
           L.polyline(points, {
             color,
@@ -96,7 +89,6 @@ export default function RouteMap({ route }: RouteMapProps) {
         }
       });
 
-      // Fit bounds
       if (allPoints.length > 0) {
         const bounds = L.latLngBounds(allPoints);
         map.fitBounds(bounds, { padding: [30, 30] });
@@ -114,12 +106,12 @@ export default function RouteMap({ route }: RouteMapProps) {
     <div className="relative">
       <div
         id={mapId}
-        className="w-full h-[400px] md:h-[600px] rounded-xl border border-sand-light overflow-hidden"
+        className="w-full h-full min-h-[400px] overflow-hidden"
         style={{ zIndex: 0 }}
       />
       {!mapReady && route.days.length > 0 && (
-        <div className="absolute inset-0 flex items-center justify-center bg-cream/80 rounded-xl">
-          <p className="text-earth">טוען מפה...</p>
+        <div className="absolute inset-0 flex items-center justify-center bg-surface/80">
+          <p className="text-on-surface-variant">טוען מפה...</p>
         </div>
       )}
     </div>

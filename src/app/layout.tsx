@@ -1,12 +1,5 @@
 import type { Metadata } from 'next';
-import { Heebo } from 'next/font/google';
 import './globals.css';
-
-const heebo = Heebo({
-  subsets: ['hebrew', 'latin'],
-  variable: '--font-heebo',
-  display: 'swap',
-});
 
 export const metadata: Metadata = {
   title: 'שביל הטעמים של ישראל',
@@ -20,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="he" dir="rtl" className={heebo.variable}>
+    <html lang="he" dir="rtl">
       <head>
         <link
           rel="stylesheet"
@@ -28,8 +21,16 @@ export default function RootLayout({
           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
           crossOrigin=""
         />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+          rel="stylesheet"
+        />
       </head>
-      <body className="min-h-screen font-[var(--font-heebo)]">{children}</body>
+      <body className="min-h-screen font-[var(--font-alef)]">{children}</body>
     </html>
   );
 }

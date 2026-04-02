@@ -58,6 +58,28 @@ export const PLACE_TYPE_EMOJI: Record<PlaceType, string> = {
   'שוק': '🏪',
 };
 
+export const PLACE_TYPE_ICON: Record<PlaceType, string> = {
+  'מסעדה/בר': 'restaurant',
+  'אוכל רחוב': 'lunch_dining',
+  'מאפייה': 'bakery_dining',
+  'חלבנות/גבינות': 'chess',
+  'יקב/מזקקה': 'wine_bar',
+  'יצרן/חקלאי': 'agriculture',
+  'שף/ארוחת טעימות': 'skillet',
+  'שוק': 'storefront',
+};
+
+export const PLACE_TYPE_LABEL: Record<PlaceType, string> = {
+  'מסעדה/בר': 'מסעדה',
+  'אוכל רחוב': 'אוכל רחוב',
+  'מאפייה': 'מאפייה',
+  'חלבנות/גבינות': 'מחלבה',
+  'יקב/מזקקה': 'יקב',
+  'יצרן/חקלאי': 'חקלאי',
+  'שף/ארוחת טעימות': 'שף/טעימות',
+  'שוק': 'שוק',
+};
+
 export interface RegionGroup {
   label: string;
   regions: string[];
@@ -102,13 +124,13 @@ export const REGION_GROUPS: RegionGroup[] = [
 
 export const ALL_REGIONS = REGION_GROUPS.flatMap((g) => g.regions);
 
-// Day colors for map polylines
+// Day colors for map polylines — Stitch palette
 export const DAY_COLORS = [
-  '#6B8E23', // olive
-  '#CD853F', // peru/terracotta
-  '#2E8B57', // sea green
-  '#B8860B', // dark goldenrod
-  '#8B4513', // saddle brown
-  '#556B2F', // dark olive green
-  '#A0522D', // sienna
+  '#9d3d2e', // primary terracotta
+  '#56642b', // secondary herb green
+  '#51652a', // tertiary olive
+  '#bd5444', // primary container
+  '#6a7e40', // tertiary container
+  '#89726d', // outline
+  '#a03f30', // surface tint
 ];

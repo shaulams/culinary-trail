@@ -1,46 +1,58 @@
 'use client';
 
-import { DayPlan, DAY_COLORS } from '@/lib/types';
+import { DayPlan } from '@/lib/types';
 import StopCard from './StopCard';
+import { haversineDistance, estimatedDrivingMinutes } from '@/lib/distance';
 
 interface DayCardProps {
   dayPlan: DayPlan;
+  variant?: 'compact' | 'editorial';
 }
 
-export default function DayCard({ dayPlan }: DayCardProps) {
-  const color = DAY_COLORS[(dayPlan.day - 1) % DAY_COLORS.length];
+export default function DayCard({ dayPlan, variant = 'editorial' }: DayCardProps) {
+  // Determine primary region for this day
+  const regionCounts: Record<string, number> = {};
+  dayPlan.stops.forEach((s) => {
+    regionCounts[s.region] = (regionCounts[s.region] || 0) + 1;
+  });
+  const primaryRegion = Object.entries(regionCounts).sort((a, b) => b[1] - a[1])[0]?.[0] || '';
 
   return (
-    <div className="space-y-3">
+    <div className="space-y-4">
       {/* Day header */}
-      <div
-        className="flex items-center gap-3 px-4 py-2 rounded-lg"
-        style={{ backgroundColor: `${color}15` }}
-      >
-        <div
-          className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-lg"
-          style={{ backgroundColor: color }}
-        >
-          {dayPlan.day}
-        </div>
-        <div>
-          <h3 className="font-bold text-earth-dark">יום {dayPlan.day}</h3>
-          <p className="text-xs text-earth">
-            {dayPlan.stops.length} עצירות
-            {dayPlan.totalDrivingKm > 0 && (
-              <>
-                {' '}
-                · {dayPlan.totalDrivingKm} ק״מ · ~{dayPlan.estimatedDrivingMinutes} דקות נסיעה
-              </>
-            )}
-          </p>
+      <div className="flex flex-col gap-1">
+        <h2 className="text-4xl font-bold text-on-surface leading-tight -mr-1">
+          יום {dayPlan.day}: {primaryRegion}
+        </h2>
+        <div className="flex items-center gap-2 mt-2">
+          <span className="material-symbols-outlined text-secondary text-lg">schedule</span>
+          <span className="text-secondary font-medium text-sm">
+            {dayPlan.estimatedDrivingMinutes} דק׳ נסיעה סה״כ
+          </span>
         </div>
       </div>
+
       {/* Stops */}
-      <div className="space-y-3 ps-2">
-        {dayPlan.stops.map((stop, i) => (
-          <StopCard key={stop.name} place={stop} index={i} dayColor={color} />
-        ))}
+      <div className={variant === 'editorial' ? 'flex flex-col' : 'space-y-6'}>
+        {dayPlan.stops.map((stop, i) => {
+          // Calculate driving minutes to next stop
+          let drivingMin = 0;
+          if (i < dayPlan.stops.length - 1) {
+            const dist = haversineDistance(stop, dayPlan.stops[i + 1]);
+            drivingMin = Math.round(estimatedDrivingMinutes(dist));
+          }
+          return (
+            <StopCard
+              key={stop.name}
+              place={stop}
+              index={i}
+              dayColor="#9d3d2e"
+              variant={variant}
+              drivingMinutes={drivingMin}
+              isLast={i === dayPlan.stops.length - 1}
+            />
+          );
+        })}
       </div>
     </div>
   );

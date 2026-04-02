@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="he"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,700;1,6..72,400&amp;family=Work+Sans:wght@400;500;600&amp;family=Heebo:wght@400;500;700&amp;family=Frank+Ruhl+Libre:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary-fixed": "#141f00",
+              "tertiary-container": "#6a7e40",
+              "surface": "#fbf9f4",
+              "on-primary": "#ffffff",
+              "surface-variant": "#e4e2dd",
+              "tertiary-fixed": "#d4eca2",
+              "on-error": "#ffffff",
+              "on-primary-container": "#fffbff",
+              "on-surface-variant": "#56423e",
+              "surface-container-high": "#eae8e3",
+              "surface-container-highest": "#e4e2dd",
+              "error": "#ba1a1a",
+              "inverse-surface": "#30312e",
+              "surface-container-lowest": "#ffffff",
+              "on-secondary-fixed-variant": "#3e4c16",
+              "on-error-container": "#93000a",
+              "outline-variant": "#ddc0bb",
+              "primary": "#9d3d2e",
+              "secondary-container": "#d6e7a1",
+              "on-primary-fixed": "#400200",
+              "surface-bright": "#fbf9f4",
+              "surface-dim": "#dbdad5",
+              "secondary-fixed": "#d9eaa3",
+              "inverse-on-surface": "#f2f1ec",
+              "primary-container": "#bd5444",
+              "on-secondary-container": "#5a682f",
+              "secondary": "#56642b",
+              "tertiary": "#51652a",
+              "on-secondary": "#ffffff",
+              "outline": "#89726d",
+              "error-container": "#ffdad6",
+              "on-primary-fixed-variant": "#80281b",
+              "on-tertiary-container": "#030600",
+              "on-tertiary-fixed-variant": "#3b4d14",
+              "on-secondary-fixed": "#161f00",
+              "background": "#fbf9f4",
+              "inverse-primary": "#ffb4a7",
+              "primary-fixed": "#ffdad4",
+              "surface-tint": "#a03f30",
+              "on-background": "#1b1c19",
+              "primary-fixed-dim": "#ffb4a7",
+              "surface-container-low": "#f5f3ee",
+              "on-surface": "#1b1c19",
+              "surface-container": "#f0eee9",
+              "on-tertiary": "#ffffff",
+              "secondary-fixed-dim": "#bdce89",
+              "tertiary-fixed-dim": "#b8cf88"
+            },
+            fontFamily: {
+              "headline": ["Frank Ruhl Libre", "serif"],
+              "body": ["Heebo", "sans-serif"],
+              "label": ["Work Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+    }
+body {
+    background-color: #fbf9f4;
+    color: #1b1c19
+    }
+.paper-texture {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuDlh_Lz0uUr0LUbSvyHdfsNRnyQNE-iYzWY-LR2gY70XfxSVWgUJVC9IQkEl4sNdQ1uDCk_ottw_XKWFGTjDqoYXiyMDwf8_OVkmlySUjagLhbYuQArLsnDOBZXkyZctPwblYR7AfzBPucrJQok6TGPfls60_K0VE8N6ofL1_lmRrdk_uqcZX3lkQJ4GKajF6PtIbOVWLRS35zxHHF2BKWBg5wbtbGHBXKv1yrws_1hMpXVrQJ2-74tq_YbDF5QlO9dWcza7JVWmaXc);
+    opacity: 0.03;
+    pointer-events: none
+    }</style>
+</head>
+<body class="font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+<div class="fixed inset-0 paper-texture z-[-1]"></div>
+<header class="sticky top-0 z-50 bg-[#fbf9f4] dark:bg-stone-950 flex flex-row-reverse justify-between items-center w-full px-6 py-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#9d3d2e] cursor-pointer hover:opacity-80 transition-opacity">share</span>
+</div>
+<h1 class="font-headline text-2xl font-bold tracking-tight rtl text-[#9d3d2e] dark:text-[#bd5444]">שביל הטעמים</h1>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#9d3d2e] cursor-pointer hover:opacity-80 transition-opacity">arrow_forward</span>
+</div>
+</header>
+<main class="max-w-[375px] mx-auto min-h-screen pb-32">
+<section class="px-6 py-8">
+<div class="flex flex-col gap-1">
+<h2 class="font-headline text-4xl font-extrabold text-on-surface leading-tight -mr-1">יום 1: עמק יזרעאל וסביבתו</h2>
+<div class="flex items-center gap-2 mt-2">
+<span class="material-symbols-outlined text-secondary text-lg">schedule</span>
+<span class="text-secondary font-medium text-sm">55 דק׳ נסיעה סה״כ</span>
+</div>
+</div>
+<div class="mt-8 flex justify-end">
+<button class="flex items-center gap-2 px-4 py-2 bg-surface-container-highest rounded-full text-secondary hover:opacity-80 transition-all active:scale-95">
+<span class="material-symbols-outlined text-sm">map</span>
+<span class="text-sm font-bold">תצוגת מפה</span>
+</button>
+</div>
+</section>
+<div class="px-6 flex flex-col">
+<article class="relative flex flex-col gap-4">
+<div class="overflow-hidden rounded-xl bg-surface-container-low">
+<div class="relative h-64 w-full">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA09je2IjItdseq0syF9aO3GLax2NXyA6B-4OhiJuSk1lxXyMenHJlyt6GDwpJwBjUk2zdhJdEVpoECarjmG3Iv3rZfGEgYtn3QQ4dQN9Wh8ANsT70ra_JEXKx_tBddygRFfkN90UQymfyxsFOQFK1LYTq3V0j8OP8kdN_ZFkKP5i0SWjr6szqGvL5AVKHAMgbbAWqUP206qVFlMnJsYDG0M2boJVruKT02Tlp-s7WSSUhDgXxyL24bxT9NOUpHF8HduXcQaKXw2od1"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+<div class="absolute bottom-4 right-4 flex gap-2">
+<span class="bg-secondary px-3 py-1 rounded-full text-on-secondary text-xs font-bold">אוכל רחוב</span>
+<span class="bg-primary/90 px-3 py-1 rounded-full text-on-primary text-xs font-bold">צפון</span>
+</div>
+</div>
+<div class="p-5">
+<h3 class="font-headline text-2xl font-bold mb-2">מייקיז פיצה</h3>
+<p class="text-on-surface-variant text-base leading-relaxed mb-6">פיצה דקה ופריכה בלב עמק יזרעאל, שילוב מושלם של חומרי גלם מקומיים וטכניקה מסורתית.</p>
+<div class="flex flex-row-reverse items-center justify-between">
+<a class="text-primary font-bold text-sm underline underline-offset-4 decoration-primary/30" href="#">לכתבה המלאה</a>
+<button class="bg-primary text-on-primary px-5 py-2.5 rounded-full font-bold text-sm flex items-center gap-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">near_me</span>
+נווט לשם
+</button>
+</div>
+</div>
+</div>
+</article>
+<div class="flex flex-col items-center py-6">
+<div class="w-px h-12 border-l border-dotted border-outline mb-3"></div>
+<div class="bg-surface-container-high px-4 py-1.5 rounded-full flex items-center gap-2">
+<span class="material-symbols-outlined text-xs text-secondary">directions_car</span>
+<span class="text-xs font-medium text-secondary">23 דק׳ נסיעה</span>
+</div>
+<div class="w-px h-12 border-l border-dotted border-outline mt-3"></div>
+</div>
+<article class="relative flex flex-col gap-4 mb-12">
+<div class="overflow-hidden rounded-xl bg-surface-container-low">
+<div class="relative h-64 w-full">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuULRzzBot0kFoZuKq3YweYnC2PJC_j7odVz9gZhCLUs7i4e4HojiprMAfMQwi9zsfBVReT1sFuiBRG0OPJh0YWB4J-kasBglCzev3jafjuaNcpVKDXSyuBGGf6UrwEv8SJwKh3BQQ1vzlVeTIVMo2oQxSeNE0-J2NeFlUiD_qiGHxWu4itANwhMCtGgwFLabM8O8tLEVY3TF-Povlu9YEcL8Xjcn_n6nofBe5IAOq4D2D_L_-0NJRf6olqiHYCWY-sgbiX1Xr2sHv"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+<div class="absolute bottom-4 right-4 flex gap-2">
+<span class="bg-secondary px-3 py-1 rounded-full text-on-secondary text-xs font-bold">בית קפה</span>
+<span class="bg-primary/90 px-3 py-1 rounded-full text-on-primary text-xs font-bold">צפון</span>
+</div>
+</div>
+<div class="p-5">
+<h3 class="font-headline text-2xl font-bold mb-2">קפה תבור</h3>
+<p class="text-on-surface-variant text-base leading-relaxed mb-6">פינת חמד למרגלות ההר. קלייה מקומית, מאפים בעבודת יד ואווירה גלילית נינוחה שאי אפשר להסביר במילים.</p>
+<div class="flex flex-row-reverse items-center justify-between">
+<a class="text-primary font-bold text-sm underline underline-offset-4 decoration-primary/30" href="#">לכתבה המלאה</a>
+<button class="bg-primary text-on-primary px-5 py-2.5 rounded-full font-bold text-sm flex items-center gap-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">near_me</span>
+נווט לשם
+</button>
+</div>
+</div>
+</div>
+</article>
+</div>
+</main>
+<nav class="fixed bottom-0 left-0 w-full z-50 flex flex-row-reverse justify-around items-center px-4 pb-6 pt-2 bg-[#fbf9f4] dark:bg-stone-900 border-t border-[#ddc0bb]/20 shadow-[0px_-4px_16px_rgba(160,63,48,0.04)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-[#9d3d2e] font-bold" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="font-sans text-xs font-medium rtl">גילוי</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#56642b]/70 hover:text-[#9d3d2e] transition-colors" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="font-sans text-xs font-medium rtl">מפה</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#56642b]/70 hover:text-[#9d3d2e] transition-colors" href="#">
+<span class="material-symbols-outlined">bookmark</span>
+<span class="font-sans text-xs font-medium rtl">שמורים</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#56642b]/70 hover:text-[#9d3d2e] transition-colors" href="#">
+<span class="material-symbols-outlined">menu</span>
+<span class="font-sans text-xs font-medium rtl">תפריט</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="he"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,700&amp;family=Work+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary-fixed": "#141f00",
+              "tertiary-container": "#6a7e40",
+              "surface": "#fbf9f4",
+              "on-primary": "#ffffff",
+              "surface-variant": "#e4e2dd",
+              "tertiary-fixed": "#d4eca2",
+              "on-error": "#ffffff",
+              "on-primary-container": "#fffbff",
+              "on-surface-variant": "#56423e",
+              "surface-container-high": "#eae8e3",
+              "surface-container-highest": "#e4e2dd",
+              "error": "#ba1a1a",
+              "inverse-surface": "#30312e",
+              "surface-container-lowest": "#ffffff",
+              "on-secondary-fixed-variant": "#3e4c16",
+              "on-error-container": "#93000a",
+              "outline-variant": "#ddc0bb",
+              "primary": "#9d3d2e",
+              "secondary-container": "#d6e7a1",
+              "on-primary-fixed": "#400200",
+              "surface-bright": "#fbf9f4",
+              "surface-dim": "#dbdad5",
+              "secondary-fixed": "#d9eaa3",
+              "inverse-on-surface": "#f2f1ec",
+              "primary-container": "#bd5444",
+              "on-secondary-container": "#5a682f",
+              "secondary": "#56642b",
+              "tertiary": "#51652a",
+              "on-secondary": "#ffffff",
+              "outline": "#89726d",
+              "error-container": "#ffdad6",
+              "on-primary-fixed-variant": "#80281b",
+              "on-tertiary-container": "#030600",
+              "on-tertiary-fixed-variant": "#3b4d14",
+              "on-secondary-fixed": "#161f00",
+              "background": "#fbf9f4",
+              "inverse-primary": "#ffb4a7",
+              "primary-fixed": "#ffdad4",
+              "surface-tint": "#a03f30",
+              "on-background": "#1b1c19",
+              "primary-fixed-dim": "#ffb4a7",
+              "surface-container-low": "#f5f3ee",
+              "on-surface": "#1b1c19",
+              "surface-container": "#f0eee9",
+              "on-tertiary": "#ffffff",
+              "secondary-fixed-dim": "#bdce89",
+              "tertiary-fixed-dim": "#b8cf88"
+            },
+            fontFamily: {
+              "headline": ["Newsreader", "serif"],
+              "body": ["Work Sans", "sans-serif"],
+              "label": ["Work Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+    }
+.paper-texture {
+    background-color: #fbf9f4;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuDg-1yU6x4-EFDGasaLm5maGSC6Dz-72rcMLsdvQB4gQcyof88rJy3CMzbLnFon0cVACDacU1Cd3Mos6gDOCSNUihillSSFXHExu147CqafiTd7z27ZUIJYkGD50bFnmvV44XOBvn_Vu6hk40abCO13wBra94XPX9KDKNQcNXU5CIIIPdbnbnq3LF8tOBpe-a8a3s-i-W--68pLfoQ1NKM1nS2TxvaazbFhTdgvlUwmHSrs-i47HOjBem2YhHb3v4_ICbYThP5JfRso)
+    }
+.map-gradient {
+    background: linear-gradient(180deg, #f0eee9 0%, #e4e2dd 100%)
+    }
+::-webkit-scrollbar {
+    display: none
+    }</style>
+</head>
+<body class="bg-surface text-on-surface font-body select-none">
+<header class="fixed top-0 left-0 w-full z-50 flex flex-row-reverse justify-between items-center px-6 py-4 bg-[#fbf9f4] dark:bg-stone-950 transition-opacity">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#9d3d2e] dark:text-[#bd5444] cursor-pointer">share</span>
+</div>
+<h1 class="font-serif text-2xl font-bold tracking-tight rtl text-[#9d3d2e] dark:text-[#bd5444]">שביל הטעמים</h1>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#9d3d2e] dark:text-[#bd5444] cursor-pointer">arrow_forward</span>
+</div>
+</header>
+<div class="fixed top-16 left-0 w-full z-40 bg-surface-container-low px-6 py-3 flex justify-between items-center shadow-sm">
+<div class="flex items-center gap-2 text-secondary font-medium text-sm">
+<span>מסלול 3 ימים</span>
+<span class="w-1 h-1 bg-outline-variant rounded-full"></span>
+<span>7 עצירות</span>
+<span class="w-1 h-1 bg-outline-variant rounded-full"></span>
+<span>2 אזורים</span>
+</div>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-outline-variant/30 text-xs font-semibold text-primary hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-sm">list</span>
+            תצוגת רשימה
+        </button>
+</div>
+<main class="relative w-full h-[574px] map-gradient overflow-hidden">
+<img alt="Stylized map" class="w-full h-full object-cover opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChs3DVmbRwCH0dhFpzUPHGwHO2pkpBwkT_jv7BmrDSidbGHCgUX93YLiuXalnlmmK72KKS8eYDtRF81gjRMuMJ__0sisWXvlcsu9GdjVE0kB7LlUgL17tz77r8b_I_U3Sa3ANpZm1AQaz3yqFe_4BXCBtmtcBFlxBN6Q2y8vHJBNqlvwfi3cFmmxfjTh3qxRcUnzdMMSGsmKRVXKFgu6aG9fLwKmVTKYfPjMWZ9JBJoJN3td3EdCKL1Rz5DRjjF-DLaN_EOJfiIdAt"/>
+<div class="absolute top-[30%] right-[40%] group">
+<div class="relative flex flex-col items-center">
+<div class="w-8 h-8 bg-primary text-on-primary rounded-full flex items-center justify-center font-bold text-sm shadow-lg border-2 border-surface animate-bounce">1</div>
+<div class="w-1 h-4 bg-primary/40 -mt-1 rounded-full"></div>
+</div>
+</div>
+<div class="absolute top-[45%] right-[55%]">
+<div class="w-6 h-6 bg-primary text-on-primary rounded-full flex items-center justify-center font-bold text-xs shadow-md border-2 border-surface">2</div>
+</div>
+<div class="absolute top-[55%] right-[35%]">
+<div class="w-6 h-6 bg-primary text-on-primary rounded-full flex items-center justify-center font-bold text-xs shadow-md border-2 border-surface">3</div>
+</div>
+<svg class="absolute inset-0 w-full h-full pointer-events-none opacity-40" viewbox="0 0 375 600">
+<path d="M150 180 Q 200 240 170 300 T 210 360" fill="none" stroke="#9d3d2e" stroke-dasharray="6 4" stroke-width="2"></path>
+</svg>
+<div class="absolute top-4 left-4 flex flex-col gap-3">
+<button class="w-12 h-12 rounded-full bg-secondary text-on-secondary flex items-center justify-center shadow-lg active:scale-95 transition-transform">
+<span class="material-symbols-outlined">picture_as_pdf</span>
+</button>
+<button class="w-12 h-12 rounded-full bg-secondary text-on-secondary flex items-center justify-center shadow-lg active:scale-95 transition-transform">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+</main>
+<section class="fixed bottom-0 left-0 w-full h-[397px] paper-texture rounded-t-[2rem] shadow-[0px_-12px_32px_rgba(160,63,48,0.06)] z-50 flex flex-col border-t border-outline-variant/10">
+<div class="w-full flex justify-center pt-3 pb-2">
+<div class="w-12 h-1.5 bg-outline-variant/40 rounded-full"></div>
+</div>
+<div class="flex justify-around px-6 py-4 border-b border-outline-variant/10">
+<button class="text-primary font-bold text-sm flex flex-col items-center gap-1">
+                יום 1
+                <span class="w-1 h-1 bg-primary rounded-full"></span>
+</button>
+<button class="text-on-surface-variant/60 font-medium text-sm">יום 2</button>
+<button class="text-on-surface-variant/60 font-medium text-sm">יום 3</button>
+</div>
+<div class="flex-1 overflow-y-auto px-6 py-6 space-y-6 pb-24">
+<div class="group relative">
+<div class="flex gap-4">
+<div class="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0">
+<img alt="Place photo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCONBRfb83Qm3Iga254oyX-rd40AI7wCu7moQITSY5RPQhADLXBg4JGSlHJmPA2fejRP_W1I0Tlw-TNM11EL7ZBZWL_dRDBFdTrRBfKZYCOa9MKYhv6Z_JRUA05AOZllC8lW2LsoUNRxkzgphZM6JuqxTKNz5qYGzX8dg4A7zfxQpSDjy8T1OLR7-ZvT8r_xE7NZlWFm9WhHb2xqcY5BSCPYpN1adp28rVn4wTaWbc92QqxZLIN1LIZq9QUupF9I7bedPsUkEdx46H7"/>
+</div>
+<div class="flex flex-col justify-center flex-1">
+<div class="flex items-center gap-2 mb-1">
+<span class="bg-secondary/10 text-secondary text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">אוכל רחוב</span>
+</div>
+<h3 class="text-lg font-headline font-bold text-on-surface leading-tight">מייקיז פיצה</h3>
+<p class="text-sm text-on-surface-variant line-clamp-1">פיצה נפוליטנית עם טאץ' מקומי בשוק</p>
+</div>
+</div>
+<div class="mt-4 flex items-center gap-3 text-xs text-secondary font-medium bg-surface-container-high/50 p-2.5 rounded-lg border-r-4 border-primary/40">
+<span class="material-symbols-outlined text-sm">directions_car</span>
+<span>15 דק׳ נסיעה לעצירה הבאה</span>
+</div>
+</div>
+<div class="group relative">
+<div class="flex gap-4">
+<div class="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0">
+<img alt="Bakery photo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_6sPv0MCRI7ZACEvZngGKV7hxuZh0zXEqKeM_ytCzvbr2TwqwrMUC933Zby73NlP5rb7UcwfGS-Hv06_123jS6O04590rjcpDICtO3_vKlVJOy5rE0hdN_T8vyF8krb9dRfwqRc1qEnH7CcctllaGGx2WvPst2NYHplgD-3hwG3cmR4d10J_DMoREF0dKD_eJFrjIYIepMZR2qErkJ_GUJBHexJzpK7cDlmIk9X6yl86fKg5N7syezseK_YwLVoptIM6-RViSPsvC"/>
+</div>
+<div class="flex flex-col justify-center flex-1">
+<div class="flex items-center gap-2 mb-1">
+<span class="bg-tertiary/10 text-tertiary text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">מאפייה</span>
+</div>
+<h3 class="text-lg font-headline font-bold text-on-surface leading-tight">לחם וחברים</h3>
+<p class="text-sm text-on-surface-variant line-clamp-1">קראנץ' שוקולד וקפה של בוקר</p>
+</div>
+</div>
+<div class="mt-4 flex items-center gap-3 text-xs text-secondary font-medium bg-surface-container-high/50 p-2.5 rounded-lg border-r-4 border-primary/40">
+<span class="material-symbols-outlined text-sm">directions_walk</span>
+<span>8 דק׳ הליכה לעצירה הבאה</span>
+</div>
+</div>
+</div>
+</section>
+<nav class="fixed bottom-0 left-0 w-full z-50 flex flex-row-reverse justify-around items-center px-4 pb-6 pt-2 bg-[#fbf9f4] dark:bg-stone-900 rounded-t-xl border-t border-[#ddc0bb]/20 shadow-[0px_-4px_16px_rgba(160,63,48,0.04)]">
+<div class="flex flex-col items-center justify-center text-[#56642b]/70 font-medium text-xs font-sans rtl">
+<span class="material-symbols-outlined">menu</span>
+<span>תפריט</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#56642b]/70 font-medium text-xs font-sans rtl">
+<span class="material-symbols-outlined">bookmark</span>
+<span>שמורים</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#9d3d2e] font-bold text-xs font-sans rtl">
+<span class="material-symbols-outlined">map</span>
+<span>מפה</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#56642b]/70 font-medium text-xs font-sans rtl">
+<span class="material-symbols-outlined">explore</span>
+<span>גילוי</span>
+</div>
+</nav>
+</body></html>

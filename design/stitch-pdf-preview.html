@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="he"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,700;1,6..72,400&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+ tailwind.config = {
+ darkMode: "class",
+ theme: {
+ extend: {
+ colors: {
+ "on-tertiary-fixed": "#141f00",
+ "tertiary-container": "#6a7e40",
+ "surface": "#fbf9f4",
+ "on-primary": "#ffffff",
+ "surface-variant": "#e4e2dd",
+ "tertiary-fixed": "#d4eca2",
+ "on-error": "#ffffff",
+ "on-primary-container": "#fffbff",
+ "on-surface-variant": "#56423e",
+ "surface-container-high": "#eae8e3",
+ "surface-container-highest": "#e4e2dd",
+ "error": "#ba1a1a",
+ "inverse-surface": "#30312e",
+ "surface-container-lowest": "#ffffff",
+ "on-secondary-fixed-variant": "#3e4c16",
+ "on-error-container": "#93000a",
+ "outline-variant": "#ddc0bb",
+ "primary": "#9d3d2e",
+ "secondary-container": "#d6e7a1",
+ "on-primary-fixed": "#400200",
+ "surface-bright": "#fbf9f4",
+ "surface-dim": "#dbdad5",
+ "secondary-fixed": "#d9eaa3",
+ "inverse-on-surface": "#f2f1ec",
+ "primary-container": "#bd5444",
+ "on-secondary-container": "#5a682f",
+ "secondary": "#56642b",
+ "tertiary": "#51652a",
+ "on-secondary": "#ffffff",
+ "outline": "#89726d",
+ "error-container": "#ffdad6",
+ "on-primary-fixed-variant": "#80281b",
+ "on-tertiary-container": "#030600",
+ "on-tertiary-fixed-variant": "#3b4d14",
+ "on-secondary-fixed": "#161f00",
+ "background": "#fbf9f4",
+ "inverse-primary": "#ffb4a7",
+ "primary-fixed": "#ffdad4",
+ "surface-tint": "#a03f30",
+ "on-background": "#1b1c19",
+ "primary-fixed-dim": "#ffb4a7",
+ "surface-container-low": "#f5f3ee",
+ "on-surface": "#1b1c19",
+ "surface-container": "#f0eee9",
+ "on-tertiary": "#ffffff",
+ "secondary-fixed-dim": "#bdce89",
+ "tertiary-fixed-dim": "#b8cf88"
+ },
+ fontFamily: {
+ "headline": ["Newsreader", "serif"],
+ "body": ["Work Sans", "sans-serif"],
+ "label": ["Work Sans", "sans-serif"]
+ },
+ borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+ },
+ },
+ }
+ </script>
+<style>.material-symbols-outlined {
+ font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+ }
+.paper-texture {
+ background-color: #fbf9f4;
+ background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuCQLmwnjLxpSdphfZ5jM6X5tY2GTrUtxkboIbaWv1n7vB6qOXUw0558LGwMdwIsmrT3fbyJ6WVKUS1biMC0MlxtdHCwGVUszzWRtxpEyNRjtxp4rhyWBMFIyCkG4d3qGZZ6xzwAuUf2XUWh7Mf-hytzu20qQC5VocSqqQZu7u6OzV3sY2egRMcsjNc6sLnu365p09Jh88BT3bMlz04njEyoIobrYiz9JLfNLy7Kj7HXRsCx93ZaGJGOv8Rb2IUPDaQ_UkqOTsshTqB_)
+ }
+@media print {
+ .no-print { display: none !important }
+ .print-only { display: block !important }
+ body { background: white }
+ }</style>
+</head>
+<body class="bg-surface-container text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+<nav class="bg-[#fbf9f4] dark:bg-stone-950 flex flex-row-reverse justify-between items-center w-full px-6 py-4 fixed top-0 z-50 no-print">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#9d3d2e] dark:text-[#bd5444] cursor-pointer hover:opacity-80 transition-opacity">share</span>
+</div>
+<h1 class="font-serif text-2xl font-bold tracking-tight rtl text-[#9d3d2e] dark:text-[#bd5444]">שביל הטעמים</h1>
+<div class="flex items-center">
+<span class="material-symbols-outlined text-[#9d3d2e] dark:text-[#bd5444] cursor-pointer hover:opacity-80 transition-opacity">arrow_forward</span>
+</div>
+</nav>
+<main class="pt-24 pb-32 px-4 flex flex-col items-center">
+<div class="w-full max-w-[375px] paper-texture shadow-[0px_12px_32px_rgba(160,63,48,0.06)] overflow-hidden relative border border-outline-variant/20 mb-8 min-h-[600px]">
+<div class="p-8 text-center border-b-2 border-primary/10 mb-8">
+<div class="mb-4">
+<span class="font-headline text-primary text-4xl font-bold tracking-tighter">שביל הטעמים</span>
+<div class="text-secondary font-medium tracking-widest text-xs uppercase mt-1">של ישראל</div>
+</div>
+<h2 class="font-headline text-2xl italic text-on-surface-variant mb-6">המסלול הקולינרי שלכם</h2>
+<div class="flex justify-center gap-6 py-4 border-y border-outline-variant/30">
+<div class="text-center">
+<p class="text-xs text-secondary/70 font-bold">משך</p>
+<p class="font-headline text-lg text-primary">3 ימים</p>
+</div>
+<div class="w-px bg-outline-variant/30"></div>
+<div class="text-center">
+<p class="text-xs text-secondary/70 font-bold">עצירות</p>
+<p class="font-headline text-lg text-primary">7 עצירות</p>
+</div>
+</div>
+<p class="mt-4 text-xs text-on-surface-variant/60 font-medium">הופק בתאריך: 24 במאי, 2024</p>
+</div>
+<div class="px-8 pb-12">
+<div class="mb-10 relative">
+<div class="absolute -right-4 top-0 bottom-0 w-px bg-secondary/20"></div>
+<div class="absolute -right-[7px] top-1 w-3 h-3 rounded-full bg-secondary"></div>
+<h3 class="font-headline text-2xl text-secondary mb-6 pr-4">יום 1: שווקים ונוסטלגיה</h3>
+<div class="mb-8 pr-4">
+<div class="flex justify-between items-baseline mb-1">
+<h4 class="font-bold text-on-surface text-lg">מאפיית לחמים</h4>
+<span class="text-[10px] bg-surface-container-highest px-2 py-0.5 rounded text-secondary font-bold">09:00</span>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed mb-2">פתיחה מתוקה עם מאפה שמרים בעבודת יד וקפה קלוי מקומי.</p>
+<div class="flex items-center gap-1 text-[10px] text-secondary/80 font-medium italic">
+<span class="material-symbols-outlined text-[12px]">location_on</span>
+רחוב החשמונאים 103, תל אביב
+</div>
+</div>
+<div class="mb-8 pr-4">
+<div class="flex justify-between items-baseline mb-1">
+<h4 class="font-bold text-on-surface text-lg">חומוס אבו חסן</h4>
+<span class="text-[10px] bg-surface-container-highest px-2 py-0.5 rounded text-secondary font-bold">12:30</span>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed mb-2">החומוס המיתולוגי של יפו. מומלץ להזמין את ה"משולש" החם.</p>
+<div class="flex items-center gap-1 text-[10px] text-secondary/80 font-medium italic">
+<span class="material-symbols-outlined text-[12px]">location_on</span>
+רחוב הדולפין 1, יפו
+</div>
+</div>
+</div>
+<div class="mb-10 relative">
+<div class="absolute -right-4 top-0 bottom-0 w-px bg-secondary/20"></div>
+<div class="absolute -right-[7px] top-1 w-3 h-3 rounded-full bg-secondary"></div>
+<h3 class="font-headline text-2xl text-secondary mb-6 pr-4">יום 2: כרמים והרים</h3>
+<div class="mb-8 pr-4">
+<div class="flex justify-between items-baseline mb-1">
+<h4 class="font-bold text-on-surface text-lg">יקב קסטל</h4>
+<span class="text-[10px] bg-surface-container-highest px-2 py-0.5 rounded text-secondary font-bold">11:00</span>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed mb-2">טעימות יין וסיור במרתפי היקב המשפחתי בהרי יהודה.</p>
+<div class="flex items-center gap-1 text-[10px] text-secondary/80 font-medium italic">
+<span class="material-symbols-outlined text-[12px]">location_on</span>
+מושב יד שמונה
+</div>
+</div>
+</div>
+<div class="mt-8 opacity-40 grayscale contrast-125">
+<img alt="olive branch illustration" class="w-32 mx-auto rotate-12" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzhEVBjbWuQ4Zz2Bk8xslHVEfacgBLxMpfTD9jtfUEnNHb_oHLTXVsqcySEfzTf2EhHDaoTM5zfrsRDm5cviwbEqkn_fKEZmZWzXAt6huXdpRJIcIRVKgARMt7uDUmkOA73BtleMz0jtAXMWQT1iaYTqxb2UdEN5mVcZKlzl65KpH6poWhIrcN1rfX_6sHx3TyyJv0xYFaVD0X4tftvQcNlAG9d1ZRZG6Di2nSmALTHUyBBtd6wUyutVIm66Ra_EcyDXt1rg2jNQHb"/>
+</div>
+</div>
+<div class="h-4 bg-primary/5 w-full"></div>
+</div>
+<div class="w-full max-w-[375px] px-4 no-print">
+<button class="w-full bg-primary text-on-primary py-4 rounded-full font-bold text-lg shadow-lg flex items-center justify-center gap-3 hover:bg-primary-container transition-all active:scale-95">
+<span class="material-symbols-outlined">download</span>
+הורדת PDF
+</button>
+<p class="text-center text-secondary/60 text-xs mt-4">הקובץ מוכן להדפסה בפורמט A4</p>
+</div>
+</main>
+<nav class="fixed bottom-0 left-0 w-full z-50 flex flex-row-reverse justify-around items-center px-4 pb-6 pt-2 bg-[#fbf9f4] dark:bg-stone-900 border-t border-[#ddc0bb]/20 shadow-[0px_-4px_16px_rgba(160,63,48,0.04)] rounded-t-xl no-print">
+<div class="flex flex-col items-center justify-center text-[#56642b]/70 hover:text-[#9d3d2e]">
+<span class="material-symbols-outlined">menu</span>
+<span class="font-sans text-xs font-medium rtl">תפריט</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#9d3d2e] font-bold">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+<span class="font-sans text-xs font-medium rtl">שמורים</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#56642b]/70 hover:text-[#9d3d2e]">
+<span class="material-symbols-outlined">map</span>
+<span class="font-sans text-xs font-medium rtl">מפה</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#56642b]/70 hover:text-[#9d3d2e]">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-sans text-xs font-medium rtl">גילוי</span>
+</div>
+</nav>
+<div class="fixed inset-0 pointer-events-none opacity-[0.03] z-[100] bg-[url('https://www.transparenttextures.com/patterns/p6.png')]"></div>
+</body></html>

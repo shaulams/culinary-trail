@@ -1,6 +1,6 @@
 'use client';
 
-import { Route, PLACE_TYPE_EMOJI, PlaceType, DAY_COLORS } from '@/lib/types';
+import { Route, PLACE_TYPE_ICON, PlaceType, DAY_COLORS } from '@/lib/types';
 
 interface ExportPdfProps {
   route: Route;
@@ -11,14 +11,12 @@ export default function ExportPdf({ route }: ExportPdfProps) {
     const { jsPDF } = await import('jspdf');
     const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
 
-    // jsPDF doesn't support Hebrew well natively, so we'll use a simple approach
-    // with reversed text for basic Hebrew support
     const pageWidth = doc.internal.pageSize.getWidth();
     const margin = 15;
 
     // Title page
     doc.setFontSize(24);
-    doc.setTextColor(107, 142, 35); // olive
+    doc.setTextColor(157, 61, 46); // primary
     doc.text('Israel Culinary Trail', pageWidth / 2, 40, { align: 'center' });
 
     doc.setFontSize(14);
@@ -48,7 +46,6 @@ export default function ExportPdf({ route }: ExportPdfProps) {
         parseInt(color.slice(5, 7), 16),
       ];
 
-      // Day header
       doc.setFillColor(r, g, b);
       doc.rect(0, 0, pageWidth, 25, 'F');
       doc.setTextColor(255, 255, 255);
@@ -71,22 +68,19 @@ export default function ExportPdf({ route }: ExportPdfProps) {
           y = 20;
         }
 
-        // Stop number circle
         doc.setFillColor(r, g, b);
         doc.circle(margin + 5, y + 3, 4, 'F');
         doc.setTextColor(255, 255, 255);
         doc.setFontSize(10);
         doc.text(`${i + 1}`, margin + 5, y + 5, { align: 'center' });
 
-        // Stop info
-        doc.setTextColor(60, 60, 60);
+        doc.setTextColor(27, 28, 25); // on-surface
         doc.setFontSize(12);
         doc.text(stop.name, margin + 14, y + 5);
 
         doc.setFontSize(9);
-        doc.setTextColor(120, 120, 120);
-        const typeEmoji = PLACE_TYPE_EMOJI[stop.type as PlaceType] || '';
-        doc.text(`${typeEmoji} ${stop.type} | ${stop.region}`, margin + 14, y + 11);
+        doc.setTextColor(86, 66, 62); // on-surface-variant
+        doc.text(`${stop.type} | ${stop.region}`, margin + 14, y + 11);
 
         doc.setFontSize(8);
         doc.setTextColor(100, 100, 100);
@@ -94,7 +88,7 @@ export default function ExportPdf({ route }: ExportPdfProps) {
         doc.text(desc, margin + 14, y + 17, { maxWidth: pageWidth - margin * 2 - 14 });
 
         if (stop.articleUrl) {
-          doc.setTextColor(107, 142, 35);
+          doc.setTextColor(157, 61, 46); // primary
           doc.textWithLink('Article link', margin + 14, y + 25, { url: stop.articleUrl });
         }
 
@@ -108,9 +102,10 @@ export default function ExportPdf({ route }: ExportPdfProps) {
   return (
     <button
       onClick={handleExport}
-      className="px-4 py-2 bg-earth text-white rounded-lg hover:bg-earth-dark transition-colors text-sm font-medium"
+      className="w-12 h-12 rounded-full bg-secondary text-on-secondary flex items-center justify-center shadow-lg active:scale-95 transition-transform"
+      title="ייצוא ל-PDF"
     >
-      📄 ייצוא ל-PDF
+      <span className="material-symbols-outlined">picture_as_pdf</span>
     </button>
   );
 }

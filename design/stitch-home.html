@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="he"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Work+Sans:wght@300;400;500;600;700&amp;family=Frank+Ruhl+Libre:wght@700;800;900&amp;family=Heebo:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>body {
+    font-family: "Work Sans", "Heebo", sans-serif;
+    background-color: #fbf9f4;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuDGbma4W4U6j71Wk7wMt4hrqP9sLtPAwhkAtK-kq3Iqj_VegL85pPyESTWZZPUwq43qcopu675iS1O8Siq0tzvHdo9YASB0hXJp-jpPz0fm1_VPjQCkA-hIRVmSVItsw16IM8IdSGOqwWUESZqpCy6KUel_UQmU8E1LeuUteLNKWrURQrmEwoajap4ueiRaAQe2nfVzDZtadW9vZPIDLQkZWBvlhakMna3mHwDQOiQtDeEqrRR-Jb8OLQdTea8_Q6Vwvy5g1RKs78MX);
+    background-attachment: fixed
+    }
+.font-serif {
+    font-family: "Frank Ruhl Libre", "Newsreader", serif
+    }
+.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24
+    }
+::-webkit-scrollbar {
+    display: none
+    }</style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary-fixed": "#141f00",
+                        "tertiary-container": "#6a7e40",
+                        "surface": "#fbf9f4",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#e4e2dd",
+                        "tertiary-fixed": "#d4eca2",
+                        "on-error": "#ffffff",
+                        "on-primary-container": "#fffbff",
+                        "on-surface-variant": "#56423e",
+                        "surface-container-high": "#eae8e3",
+                        "surface-container-highest": "#e4e2dd",
+                        "error": "#ba1a1a",
+                        "inverse-surface": "#30312e",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#3e4c16",
+                        "on-error-container": "#93000a",
+                        "outline-variant": "#ddc0bb",
+                        "primary": "#9d3d2e",
+                        "secondary-container": "#d6e7a1",
+                        "on-primary-fixed": "#400200",
+                        "surface-bright": "#fbf9f4",
+                        "surface-dim": "#dbdad5",
+                        "secondary-fixed": "#d9eaa3",
+                        "inverse-on-surface": "#f2f1ec",
+                        "primary-container": "#bd5444",
+                        "on-secondary-container": "#5a682f",
+                        "secondary": "#56642b",
+                        "tertiary": "#51652a",
+                        "on-secondary": "#ffffff",
+                        "outline": "#89726d",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#80281b",
+                        "on-tertiary-container": "#030600",
+                        "on-tertiary-fixed-variant": "#3b4d14",
+                        "on-secondary-fixed": "#161f00",
+                        "background": "#fbf9f4",
+                        "inverse-primary": "#ffb4a7",
+                        "primary-fixed": "#ffdad4",
+                        "surface-tint": "#a03f30",
+                        "on-background": "#1b1c19",
+                        "primary-fixed-dim": "#ffb4a7",
+                        "surface-container-low": "#f5f3ee",
+                        "on-surface": "#1b1c19",
+                        "surface-container": "#f0eee9",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#bdce89",
+                        "tertiary-fixed-dim": "#b8cf88"
+                    },
+                    fontFamily: {
+                        "headline": ["Frank Ruhl Libre", "Newsreader"],
+                        "body": ["Work Sans", "Heebo"],
+                        "label": ["Work Sans", "Heebo"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="text-on-surface selection:bg-primary-fixed antialiased">
+<header class="bg-[#fbf9f4] dark:bg-stone-950 flex flex-row-reverse justify-between items-center w-full px-6 py-4 sticky top-0 z-50">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#9d3d2e] dark:text-[#bd5444] cursor-pointer hover:opacity-80 transition-opacity">share</span>
+</div>
+<h1 class="font-serif text-2xl font-bold tracking-tight rtl text-[#9d3d2e] dark:text-[#bd5444]">
+            שביל הטעמים
+        </h1>
+<div class="flex items-center">
+<span class="material-symbols-outlined text-[#9d3d2e] dark:text-[#bd5444] cursor-pointer hover:opacity-80 transition-opacity">arrow_forward</span>
+</div>
+</header>
+<main class="max-w-md mx-auto pb-32">
+<section class="px-6 pt-8 pb-12 overflow-hidden">
+<div class="relative">
+<h2 class="font-serif text-5xl font-black text-primary leading-[1.1] mb-4 -mr-2 relative z-10">
+                    שביל הטעמים<br/>של ישראל
+                </h2>
+<div class="absolute -top-4 -left-8 w-48 h-48 bg-primary/5 rounded-full blur-3xl -z-0"></div>
+</div>
+<p class="text-lg text-secondary/80 max-w-[280px] font-medium leading-relaxed">
+                בנו מסלול קולינרי מותאם אישית — מהגולן ועד הנגב
+            </p>
+</section>
+<div class="space-y-12">
+<section class="px-6">
+<h3 class="font-serif text-xl font-bold mb-5 text-on-surface">באיזה אזור נסייר?</h3>
+<div class="flex flex-wrap gap-3">
+<button class="px-6 py-3 rounded-full bg-primary text-on-primary flex items-center gap-2 shadow-sm scale-98 transition-transform">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check</span>
+<span class="font-medium">צפון</span>
+</button>
+<button class="px-6 py-3 rounded-full bg-surface-container-highest text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="font-medium">מרכז</span>
+</button>
+<button class="px-6 py-3 rounded-full bg-surface-container-highest text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="font-medium">דרום</span>
+</button>
+</div>
+</section>
+<section class="px-6">
+<div class="flex justify-between items-end mb-5">
+<h3 class="font-serif text-xl font-bold text-on-surface">לכמה ימים?</h3>
+<span class="text-primary font-bold font-serif text-lg">3 ימים</span>
+</div>
+<div class="flex gap-4 overflow-x-auto pb-2 scroll-smooth no-scrollbar">
+<div class="flex-none flex items-center justify-center w-12 h-12 rounded-full border-2 border-primary bg-primary text-on-primary font-bold shadow-md">1</div>
+<div class="flex-none flex items-center justify-center w-12 h-12 rounded-full border-2 border-primary bg-primary text-on-primary font-bold shadow-md">2</div>
+<div class="flex-none flex items-center justify-center w-12 h-12 rounded-full border-2 border-primary bg-primary text-on-primary font-bold shadow-md">3</div>
+<div class="flex-none flex items-center justify-center w-12 h-12 rounded-full border-2 border-outline/30 text-on-surface-variant font-medium">4</div>
+<div class="flex-none flex items-center justify-center w-12 h-12 rounded-full border-2 border-outline/30 text-on-surface-variant font-medium">5</div>
+<div class="flex-none flex items-center justify-center w-12 h-12 rounded-full border-2 border-outline/30 text-on-surface-variant font-medium">6</div>
+<div class="flex-none flex items-center justify-center w-12 h-12 rounded-full border-2 border-outline/30 text-on-surface-variant font-medium">7</div>
+</div>
+</section>
+<section class="px-6">
+<h3 class="font-serif text-xl font-bold mb-5 text-on-surface">מה תרצו לטעום?</h3>
+<div class="grid grid-cols-2 gap-3">
+<div class="bg-surface-container-low p-4 rounded-xl flex flex-col items-center justify-center gap-2 hover:bg-surface-container transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-3xl text-secondary group-hover:scale-110 transition-transform">restaurant</span>
+<span class="text-sm font-medium">מסעדה</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl flex flex-col items-center justify-center gap-2 hover:bg-surface-container transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-3xl text-secondary group-hover:scale-110 transition-transform">lunch_dining</span>
+<span class="text-sm font-medium">אוכל רחוב</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl flex flex-col items-center justify-center gap-2 hover:bg-surface-container transition-colors cursor-pointer group border-2 border-primary/20">
+<span class="material-symbols-outlined text-3xl text-primary group-hover:scale-110 transition-transform">bakery_dining</span>
+<span class="text-sm font-bold text-primary">מאפייה</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl flex flex-col items-center justify-center gap-2 hover:bg-surface-container transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-3xl text-secondary group-hover:scale-110 transition-transform">chess</span>
+<span class="text-sm font-medium">מחלבה</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl flex flex-col items-center justify-center gap-2 hover:bg-surface-container transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-3xl text-secondary group-hover:scale-110 transition-transform">wine_bar</span>
+<span class="text-sm font-medium">יקב</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl flex flex-col items-center justify-center gap-2 hover:bg-surface-container transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-3xl text-secondary group-hover:scale-110 transition-transform">agriculture</span>
+<span class="text-sm font-medium">חקלאי</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl flex flex-col items-center justify-center gap-2 hover:bg-surface-container transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-3xl text-secondary group-hover:scale-110 transition-transform">skillet</span>
+<span class="text-sm font-medium">שף/טעימות</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl flex flex-col items-center justify-center gap-2 hover:bg-surface-container transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-3xl text-secondary group-hover:scale-110 transition-transform">storefront</span>
+<span class="text-sm font-medium">שוק</span>
+</div>
+</div>
+</section>
+<section class="px-6 pt-4">
+<button class="w-full py-5 bg-primary text-on-primary rounded-xl font-bold text-xl shadow-lg shadow-primary/20 active:scale-[0.98] transition-transform">
+                    בנה לי מסלול!
+                </button>
+</section>
+<section class="px-6 pb-4">
+<div class="relative h-48 w-full rounded-xl overflow-hidden shadow-sm">
+<img alt="קפה ומאפה גלילי" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEeuU8-6qrA-e0WsmxQn2o41_T0tJ2v8FexIGObd5GlvTMsFGnt__-1_J41RYjni_Ov0YoPqoAhF--rYOkczEDovVG3N_YVXeFYyTNaza2QHLpN9eTZrNZeNJ5vDzBEP4FaDBbmKOAeSq7EqV8pNxddGmT9jkRCos-rnGJm5RhQPEMlck-VB8qFEo5_oWUQ33dBW6OSY5d8dnzlXqcDx3guKDU3sfqKpUc_y9MDoFAdAxm4iDOuVWyjt2-rAnx8XXlplbAGKmpkB2a"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/60 to-transparent"></div>
+<div class="absolute bottom-4 right-4">
+<p class="text-white font-serif text-lg font-bold">טעמים מהצפון</p>
+</div>
+</div>
+</section>
+<footer class="px-6 pb-12 text-center">
+<p class="text-on-surface-variant/60 text-xs font-medium">
+                    מבוסס על הטור ״פינת אוכל״ מאת רונית ורד, הארץ
+                </p>
+</footer>
+</div>
+</main>
+<nav class="fixed bottom-0 left-0 w-full z-50 flex flex-row-reverse justify-around items-center px-4 pb-6 pt-2 bg-[#fbf9f4] dark:bg-stone-900 border-t border-[#ddc0bb]/20 shadow-[0px_-4px_16px_rgba(160,63,48,0.04)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-[#9d3d2e] font-bold" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="font-sans text-xs font-medium rtl">גילוי</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#56642b]/70 hover:text-[#9d3d2e]" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="font-sans text-xs font-medium rtl">מפה</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#56642b]/70 hover:text-[#9d3d2e]" href="#">
+<span class="material-symbols-outlined">bookmark</span>
+<span class="font-sans text-xs font-medium rtl">שמורים</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#56642b]/70 hover:text-[#9d3d2e]" href="#">
+<span class="material-symbols-outlined">menu</span>
+<span class="font-sans text-xs font-medium rtl">תפריט</span>
+</a>
+</nav>
+</body></html>

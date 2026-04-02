@@ -6,30 +6,31 @@ interface DaysSliderProps {
 }
 
 export default function DaysSlider({ value, onChange }: DaysSliderProps) {
+  const days = [1, 2, 3, 4, 5, 6, 7];
+
   return (
-    <div className="space-y-3">
-      <h3 className="text-lg font-bold text-earth-dark">📅 מספר ימים</h3>
-      <div className="flex items-center gap-4">
-        <input
-          type="range"
-          min={1}
-          max={7}
-          value={value}
-          onChange={(e) => onChange(Number(e.target.value))}
-          className="flex-1"
-        />
-        <span className="text-2xl font-bold text-olive min-w-[2ch] text-center">
-          {value}
-        </span>
+    <div className="space-y-5">
+      <div className="flex justify-between items-end">
+        <h3 className="text-xl font-bold text-on-surface">לכמה ימים?</h3>
+        <span className="text-primary font-bold text-lg">{value} ימים</span>
       </div>
-      <div className="flex justify-between text-xs text-earth px-1" dir="ltr">
-        <span>1</span>
-        <span>2</span>
-        <span>3</span>
-        <span>4</span>
-        <span>5</span>
-        <span>6</span>
-        <span>7</span>
+      <div className="flex gap-4 overflow-x-auto pb-2">
+        {days.map((d) => {
+          const isSelected = d <= value;
+          return (
+            <button
+              key={d}
+              onClick={() => onChange(d)}
+              className={`flex-none flex items-center justify-center w-12 h-12 rounded-full border-2 font-bold transition-all active:scale-95 ${
+                isSelected
+                  ? 'border-primary bg-primary text-on-primary shadow-md'
+                  : 'border-outline/30 text-on-surface-variant'
+              }`}
+            >
+              {d}
+            </button>
+          );
+        })}
       </div>
     </div>
   );

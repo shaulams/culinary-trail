@@ -26,42 +26,56 @@ export default function RegionSelector({ selected, onChange }: RegionSelectorPro
   };
 
   return (
-    <div className="space-y-4">
-      <h3 className="text-lg font-bold text-earth-dark">🗺️ אזורים</h3>
-      {REGION_GROUPS.map((group) => {
-        const allGroupSelected = group.regions.every((r) => selected.includes(r));
-        return (
-          <div key={group.label} className="space-y-2">
+    <div className="space-y-5">
+      <h3 className="text-xl font-bold text-on-surface">באיזה אזור נסייר?</h3>
+      
+      {/* Region group pills */}
+      <div className="flex flex-wrap gap-3">
+        {REGION_GROUPS.map((group) => {
+          const allGroupSelected = group.regions.every((r) => selected.includes(r));
+          return (
             <button
+              key={group.label}
               onClick={() => toggleGroup(group.regions)}
-              className={`font-semibold text-sm px-3 py-1 rounded-full transition-colors ${
+              className={`px-6 py-3 rounded-full flex items-center gap-2 transition-all active:scale-[0.98] ${
                 allGroupSelected
-                  ? 'bg-olive text-white'
-                  : 'bg-cream-dark text-earth-dark hover:bg-sand-light'
+                  ? 'bg-primary text-on-primary shadow-sm'
+                  : 'bg-surface-container-highest text-on-surface hover:bg-surface-container-high'
               }`}
             >
-              {group.label}
+              {allGroupSelected && (
+                <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>check</span>
+              )}
+              <span className="font-medium">{group.label}</span>
             </button>
-            <div className="flex flex-wrap gap-2">
-              {group.regions.map((region) => (
-                <label
-                  key={region}
-                  className={`cursor-pointer text-sm px-3 py-1.5 rounded-lg border transition-all ${
-                    selected.includes(region)
-                      ? 'bg-olive/10 border-olive text-olive-dark font-medium'
-                      : 'bg-white border-sand-light text-earth hover:border-sand'
-                  }`}
-                >
-                  <input
-                    type="checkbox"
-                    checked={selected.includes(region)}
-                    onChange={() => toggleRegion(region)}
-                    className="sr-only"
-                  />
+          );
+        })}
+      </div>
+
+      {/* Sub-region chips */}
+      {REGION_GROUPS.map((group) => {
+        const someSelected = group.regions.some((r) => selected.includes(r));
+        if (!someSelected) return null;
+        return (
+          <div key={group.label} className="flex flex-wrap gap-2">
+            {group.regions.map((region) => (
+              <button
+                key={region}
+                onClick={() => toggleRegion(region)}
+                className={`px-4 py-2 rounded-full text-sm transition-all active:scale-[0.98] ${
+                  selected.includes(region)
+                    ? 'bg-primary text-on-primary shadow-sm'
+                    : 'bg-surface-container-highest text-on-surface hover:bg-surface-container-high'
+                }`}
+              >
+                <span className="flex items-center gap-1.5">
+                  {selected.includes(region) && (
+                    <span className="material-symbols-outlined text-xs" style={{ fontVariationSettings: "'FILL' 1" }}>check</span>
+                  )}
                   {region}
-                </label>
-              ))}
-            </div>
+                </span>
+              </button>
+            ))}
           </div>
         );
       })}
